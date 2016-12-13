@@ -2,16 +2,15 @@
 Launches the game server
 """
 
-from game import hanabi_server as hs
+from core import hanabi_server as hs
 from network import server
 
 #Server Settings
 ADDRESS = "localhost"
 PORT = 54329
-PLAYER_COUNT = 2
 
 
-def start_server(address, port, player_count):
+def start_server(address, port):
     """
     Creates the server socket and launches the game server
     @return: None
@@ -20,7 +19,7 @@ def start_server(address, port, player_count):
     _server = server.Server(address, port)
 
     print "Launching Hanabi Game Server..."
-    game_server = hs.GameServer(_server, player_count)
+    game_server = hs.GameServer(_server)
     game_server.Run()
 
     print "Terminating Hanabi Game Server..."
@@ -29,4 +28,4 @@ def start_server(address, port, player_count):
 if __name__ == "__main__":
 
     #Run
-    start_server(ADDRESS, PORT, PLAYER_COUNT)
+    start_server(ADDRESS, PORT)

@@ -2,7 +2,7 @@
 Launches the game client
 """
 
-from game import hanabi_client as hc
+from core import hanabi_client as hc
 from network import client
 
 #Server Settings
